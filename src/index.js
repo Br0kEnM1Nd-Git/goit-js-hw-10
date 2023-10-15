@@ -35,7 +35,7 @@ fetchBreeds()
     refs.select.removeAttribute('hidden');
   })
   .catch(error => {
-    console.log('Error: ', error.message);
+    Notiflix.Notify.failure(error.message);
     refs.loader.setAttribute('hidden', 'true');
     refs.error.removeAttribute('hidden');
   });
@@ -58,7 +58,7 @@ function onChange(event) {
         .then(response => {
           refs.infoDiv.insertAdjacentHTML(
             'beforeend',
-            `<img src="${response.data.url}" width="300px" height="300px"><h3>${catInfo.breedName}</h3><p>${catInfo.description}</p><p><b>Temperament:</b>${catInfo.temperament}</p>`
+            `<img src="${response.data.url}" width="300px" height="300px"><h3>${catInfo.breedName}</h3><p>${catInfo.description}</p><p><b>Temperament:</b> ${catInfo.temperament}</p>`
           );
         });
     })

@@ -3,17 +3,12 @@ import SlimSelect from 'slim-select';
 import Notiflix from 'notiflix';
 
 function fetchBreeds() {
-  return axios
-    .get('https://api.thecatapi.com/v1/breeds')
-    .then(response => response)
-    .catch(error => {
-      console.log('Помилка:', error.message);
-    });
+  return axios.get('https://api.thecatapi.com/v1/breeds');
 }
 
 function fetchCatByBreed(breedId) {
   return axios
-    .get(`https://api.thecatapi.com/v1/images/search1?breed_ids=${breedId}`)
+    .get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
     .then(response => response.data[0].breeds[0]);
 }
 
